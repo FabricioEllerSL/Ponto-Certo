@@ -1,0 +1,135 @@
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f8f5fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+/* HOME PAGE STYLES */
+
+.navbar {
+    background-color: #7b157a;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.navbar-texts {
+    width: 30%;
+    text-align: center;
+}
+
+.nav-h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.nav-p {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+main {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(123, 21, 122, 0.6);
+    text-align: center;
+    max-width: 600px;
+    color: #7b157a;
+    margin-top: 100px; /* para não ficar atrás da navbar fixa */
+    box-sizing: border-box;
+}
+
+.home-title {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.home-text {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.login-button {
+    margin-top: 30px;
+    background-color: #fff;
+    color: #7b157a;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    border: 1px solid #7b157a;
+}
+
+.login-button:hover {
+    background-color: #7b157a;
+    color: #fff;
+    border: 1px solid #7b157a;
+}
+
+/* NAVIGATION STYLES */
+
+.apps-container {
+    display: flex;
+    flex-wrap: wrap; /* permite quebrar linha quando não couber */
+    justify-content: center;
+    gap: 24px; /* espaçamento entre os cards */
+    padding: 40px 20px;
+    background-color: #f8f5fa;
+}
+
+.app-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px; /* largura fixa para facilitar organização */
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    flex-grow: 1; /* opcional: permite que os cards se estiquem um pouco */
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.app-title {
+    font-size: 24px;
+    color: #7b157a;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.app-title:hover {
+    text-decoration: underline;
+}
+
+.app-description {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}

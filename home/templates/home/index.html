@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <h2 class="home-title">
+            Bem-vindo ao sistema de controle de estoque do Minimercado Ponto Certo!
+        </h2>
+        <p class="home-text">Este é o sistema de controle de estoque do minimercado.</p>
+        <p class="home-text">Você pode gerenciar produtos, funcionários e categorias.</p>
+        <p class="home-text">Utilize o menu para navegar pelas funcionalidades.</p>
+
+        <a href="{% url 'home:navigation' %}" class="login-button">Login</a>
+    </main>
+{% endblock %}
