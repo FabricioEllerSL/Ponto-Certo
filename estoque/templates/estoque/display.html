@@ -4,19 +4,32 @@
 {% block content %}
 <section class="products-section">
     <h2 class="section-title">Produtos Cadastrados</h2>
+
+    <div class="actions-top">
+        <a href="{% url 'estoque:create_product' %}" class="btn create-btn">+ Cadastrar Novo Produto</a>
+    </div>
+
+    <form method="get" action="" class="search-form">
+        <input type="text" name="q" placeholder="Buscar por nome..." value="{{ request.GET.q }}" class="search-input">
+        <button type="submit" class="search-button">Buscar</button>
+    </form>
+
     <div class="products-grid">
-        {% if products %}	
-            {% for product in products %}
-            <div class="product-card">
-                <h3 class="product-name">{{ product.name }}</h3>
-                <p class="product-description">{{ product.description|default:"(sem descrição)" }}</p>
-                <p class="product-price">Preço: R$ {{ product.price }}</p>
-                <p class="product-stock">Estoque: {{ product.stock_quantity }} unidades</p>
+        {% for product in products %}
+        <div class="product-card">
+            <h3 class="product-name">{{ product.name }}</h3>
+            <p class="product-description">{{ product.description|default:"(sem descrição)" }}</p>
+            <p class="product-price">Preço: R$ {{ product.price }}</p>
+            <p class="product-stock">Estoque: {{ product.stock_quantity }} unidades</p>
+            
+            <div class="product-actions">
+                <a href="" class="btn edit-btn">Editar</a>
+                <a href="" class="btn delete-btn" onclick="return confirm('Tem certeza que deseja excluir este produto?');">Excluir</a>
             </div>
-            {% endfor %}
-        {% else %}
+        </div>
+        {% empty %}
         <p class="no-products">Nenhum produto cadastrado.</p>
-        {% endif %}
+        {% endfor %}
     </div>
 </section>
 {% endblock %}
