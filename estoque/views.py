@@ -4,8 +4,13 @@ from datetime import datetime
 from .forms import ProductForm
 
 def display_products(request):
-    
+
+    query = request.GET.get('q')
+
     products = Product.objects.all()
+
+    if query:
+        products = products.filter(name__icontains=query)
 
     today = datetime.now().strftime('%d/%m/%Y')
     context = {
