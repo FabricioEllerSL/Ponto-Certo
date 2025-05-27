@@ -13,13 +13,18 @@ def display_products(request):
         products = products.filter(name__icontains=query)
 
     today = datetime.now().strftime('%d/%m/%Y')
+
     context = {
         'today': today,
+        'products': products,
     }
     
-    return render(request, 'estoque/display.html', {'products': products})
+    return render(request, 'estoque/display.html', context)
 
 def create_product(request):
+
+    today = datetime.now().strftime('%d/%m/%Y')
+
     if request.method == 'POST':
         form = ProductForm(request.POST)
         if form.is_valid():
@@ -27,4 +32,37 @@ def create_product(request):
             return redirect('estoque:display_products')
     else:
         form = ProductForm()
-    return render(request, 'estoque/create.html', {'form': form})
+
+    context = {
+        'form': form,
+        'today': today,
+    }
+
+    return render(request, 'estoque/create.html', context)
+
+def update_product(request, id):
+
+    today = datetime.now().strftime('%d/%m/%Y')
+
+    product = Product.objects.get(id=id)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('estoque:display_products')
+    else:
+        form = ProductForm(instance=product)
+
+
+    context = {
+        'form': form,
+        'today': today,
+    }
+
+    return render(request, 'estoque/create.html', context)
+
+def delete_product(request, id):
+    product = Product.objects.get(id=id)
+    product.delete()
+    return redirect('estoque:display_products')

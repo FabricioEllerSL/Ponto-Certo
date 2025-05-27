@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+<button onclick="history.back()" class="back-btn">Voltar</button>
 <section class="products-section">
     <h2 class="section-title">Produtos Cadastrados</h2>
 
@@ -23,8 +24,8 @@
             <p class="product-stock">Estoque: {{ product.stock_quantity }} unidades</p>
             
             <div class="product-actions">
-                <a href="" class="btn edit-btn">Editar</a>
-                <a href="" class="btn delete-btn" onclick="return confirm('Tem certeza que deseja excluir este produto?');">Excluir</a>
+                <a href="{% url 'estoque:update_product' product.id %}" class="btn edit-btn">Editar</a>
+                <a href="{% url 'estoque:delete_product' product.id %}" class="btn delete-btn" onclick="return confirm('Tem certeza que deseja excluir este produto?');">Excluir</a>
             </div>
         </div>
         {% empty %}

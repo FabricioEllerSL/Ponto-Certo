@@ -128,3 +128,25 @@ main {
     color: #555;
     line-height: 1.5;
 }
+
+.back-btn {
+  background-color: #7b157a;
+  color: #fff;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #5a0e5a;
+  transform: scale(1.03);
+}
+
+.back-btn:active {
+  transform: scale(0.98);
+}
