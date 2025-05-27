@@ -1,0 +1,63 @@
+/* DISPLAY ESTOQUE STYLES */
+
+.products-section {
+    padding: 40px 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 28px;
+    color: #7b157a;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    width: 280px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.product-name {
+    color: #7b157a;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    min-height: 50px;
+}
+
+.product-price,
+.product-stock {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.no-products {
+    font-size: 16px;
+    color: #888;
+    margin-top: 20px;
+}

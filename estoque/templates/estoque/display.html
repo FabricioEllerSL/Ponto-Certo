@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="products-section">
+    <h2 class="section-title">Produtos Cadastrados</h2>
+    <div class="products-grid">
+        {% if products %}	
+            {% for product in products %}
+            <div class="product-card">
+                <h3 class="product-name">{{ product.name }}</h3>
+                <p class="product-description">{{ product.description|default:"(sem descrição)" }}</p>
+                <p class="product-price">Preço: R$ {{ product.price }}</p>
+                <p class="product-stock">Estoque: {{ product.stock_quantity }} unidades</p>
+            </div>
+            {% endfor %}
+        {% else %}
+        <p class="no-products">Nenhum produto cadastrado.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
