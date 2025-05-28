@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<section class="create-sale-section">
+    <h2 class="create-sale-title">Cadastrar Nova Venda</h2>
+    <form method="post" class="sale-form">
+        {% csrf_token %}
+        
+        <label for="product">Produto</label>
+        {{ form.product }}
+
+        <label for="quantity">Quantidade</label>
+        {{ form.quantity }}
+
+        <div class="form-buttons">
+            <button type="submit" class="submit-sale-btn">Salvar Venda</button>
+            <a href="{% url 'vendas:display_vendas' %}" class="cancel-sale-link">Cancelar</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

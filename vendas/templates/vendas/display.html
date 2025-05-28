@@ -7,7 +7,7 @@
     <h2 class="section-title">Vendas Lançadas</h2>
 
     <div class="actions-top">
-        <a href="{% url 'estoque:create_product' %}" class="btn create-btn">+ Lançar Nova Venda</a>
+        <a href="{% url 'vendas:create_venda' %}" class="btn create-btn">+ Lançar Nova Venda</a>
     </div>
 
     <form method="get" action="" class="search-form">
@@ -17,14 +17,12 @@
 
     <div class="products-grid">
         {% for sale in sales %}
-        <div class="product-card">
-            <h3 class="product-name">{{ sale.product }}</h3>
-            <p class="product-description">{{ sale.sale_date|default:"(sem descrição)" }}</p>
-            <p class="product-price">Preço: R$ {{ sale.quantity }}</p>
-            <p class="product-stock">Estoque: {{ sale.unit_price }} unidades</p>
-        </div>
+            <div class="product-card">
+                <h3 class="product-name">{{ sale.product }}</h3>
+                <p class="product-description">{{ sale.sale_date }} | Valor: {{ sale.value }}</p>
+            </div>
         {% empty %}
-        <p class="no-products">Nenhuma venda lançada.</p>
+            <p class="no-products">Nenhuma venda lançada.</p>
         {% endfor %}
     </div>
 </section>
