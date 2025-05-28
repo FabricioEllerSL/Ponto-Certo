@@ -16,17 +16,12 @@
     </form>
 
     <div class="products-grid">
-        {% for product in products %}
+        {% for sale in sales %}
         <div class="product-card">
-            <h3 class="product-name">{{ product.name }}</h3>
-            <p class="product-description">{{ product.description|default:"(sem descrição)" }}</p>
-            <p class="product-price">Preço: R$ {{ product.price }}</p>
-            <p class="product-stock">Estoque: {{ product.stock_quantity }} unidades</p>
-            
-            <div class="product-actions">
-                <a href="{% url 'estoque:update_product' product.id %}" class="btn edit-btn">Editar</a>
-                <a href="{% url 'estoque:delete_product' product.id %}" class="btn delete-btn" onclick="return confirm('Tem certeza que deseja excluir este produto?');">Excluir</a>
-            </div>
+            <h3 class="product-name">{{ sale.product }}</h3>
+            <p class="product-description">{{ sale.sale_date|default:"(sem descrição)" }}</p>
+            <p class="product-price">Preço: R$ {{ sale.quantity }}</p>
+            <p class="product-stock">Estoque: {{ sale.unit_price }} unidades</p>
         </div>
         {% empty %}
         <p class="no-products">Nenhuma venda lançada.</p>
