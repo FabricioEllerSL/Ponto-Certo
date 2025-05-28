@@ -9,6 +9,7 @@
     
     <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'estoque/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'vendas/css/styles.css' %}">
 </head>
 <body>
 
@@ -17,6 +18,16 @@
         <p class="navbar-texts nav-p">Vitória da Conquista - BA</p>
         <p class="navbar-texts nav-p">{{ today }}</p>
     </nav>
+
+    {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
     <div class="container">
         {% block content %}
