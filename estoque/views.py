@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import Product
 from datetime import datetime
 from .forms import ProductForm
 
+@login_required(login_url='home:user_login')
 def display_products(request):
 
     query = request.GET.get('q')
@@ -21,6 +23,7 @@ def display_products(request):
     
     return render(request, 'estoque/display.html', context)
 
+@login_required(login_url='home:user_login')
 def create_product(request):
 
     today = datetime.now().strftime('%d/%m/%Y')
@@ -40,6 +43,7 @@ def create_product(request):
 
     return render(request, 'estoque/create.html', context)
 
+@login_required(login_url='home:user_login')
 def update_product(request, id):
 
     today = datetime.now().strftime('%d/%m/%Y')
@@ -62,6 +66,7 @@ def update_product(request, id):
 
     return render(request, 'estoque/create.html', context)
 
+@login_required(login_url='home:user_login')
 def delete_product(request, id):
     product = Product.objects.get(id=id)
     product.delete()

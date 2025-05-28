@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="login-section">
+    <div class="login-container">
+        <h2 class="login-title">Acesso ao Sistema</h2>
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            <label for="username" class="login-label">Usuário</label>
+            <input type="text" name="username" id="username" class="login-input" required>
+
+            <label for="password" class="login-label">Senha</label>
+            <input type="password" name="password" id="password" class="login-input" required>
+
+            <button type="submit" class="login-button">Entrar</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
